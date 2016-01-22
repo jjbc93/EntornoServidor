@@ -1,8 +1,7 @@
 <?php
-include "../privada/validaciones.php";
+include "../../../privada/validaciones.php";
 if(!$_POST){
-    include "../privada/login.php";
-    
+    include "../../../privada/login.php";
 }else{
   /* Hemos recibido los datos */
     /*Creo un array de los campos que deben estar*/
@@ -15,7 +14,6 @@ if(!$_POST){
         $_POST["clave"]="";
     }*/
     $errores=[];
-    
     $campos=["usuario","clave"];
     
     $_POST=Validaciones::validarEntrada($_POST,$campos);
@@ -28,12 +26,10 @@ if(!$_POST){
     }
     
     if($errores){
-        include "../privada/login.php";
+        include "../../../privada/login.php";
     }else{
         echo "todo esta bien";
     }
-    
-    
     
 }
 
