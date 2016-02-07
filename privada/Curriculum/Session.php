@@ -6,4 +6,9 @@ class Session{
             session_start();
         }
     }
+	
+	public static function destroy(){
+		self::initSession();
+		session_destroy();
+	}
 }

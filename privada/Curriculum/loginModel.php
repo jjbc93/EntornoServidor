@@ -4,7 +4,7 @@ class loginModel{
 	
 	public static function comprobarLogin($nick,$clave){
 		$encontrado = false;
-		$conexion = Conexion::CrearConexion();
+		$conexion = Conexion::crearConexion();
 		$sql = "SELECT * FROM usuario WHERE nick=? AND clave=?";
 		$query = $conexion->prepare($sql);
 		$query->bind_param("ss",$nick,$clave);
@@ -19,7 +19,7 @@ class loginModel{
 	
 	public static function comprobarUsuario($nick){
 		$encontrado = false;
-		$conexion = Conexion::CrearConexion();
+		$conexion = Conexion::crearConexion();
 		$sql = "SELECT * FROM usuario WHERE nick=?";
 		$query = $conexion->prepare($sql);
 		$query->bind_param("s",$nick);

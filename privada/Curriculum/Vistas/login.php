@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Acceso Usuario</h1>
-	<form name="login" method="post" action="Acceso.php?peticion=login">
+	<form name="login" method="post" action="Acceso.php">
 		<label>Introduce usuario</label>
 		<input type="text" name="usuario"/><br/>
 		<label>Introduce clave</label>
@@ -19,6 +19,6 @@
 			<?php $_SESSION["error"]=null;?>
 	<?php } ?>
 	
-	<a href="Acceso.php?peticion=formularioRegistro">¿Desea Registrarse?</a>
+	<a href="Registrar.php">¿Desea Registrarse?</a>
 </body>
 </html>
