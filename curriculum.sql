@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-02-2016 a las 22:00:20
+-- Tiempo de generación: 08-02-2016 a las 00:41:05
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -29,22 +29,23 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `experiencia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `empresa` varchar(17) NOT NULL,
+  `cif` varchar(12) NOT NULL,
   `fechaInicio` date NOT NULL,
   `fechaFin` date NOT NULL,
   `cargo` varchar(17) NOT NULL,
-  `descripcion` varchar(50) NOT NULL,
+  `funciones` varchar(50) NOT NULL,
   `identUsuario` varchar(12) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `identUsuario` (`identUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `experiencia`
 --
 
-INSERT INTO `experiencia` (`id`, `empresa`, `fechaInicio`, `fechaFin`, `cargo`, `descripcion`, `identUsuario`) VALUES
-(1, 'Ticomsa', '1992-07-04', '1992-08-04', 'instalador', 'Jefe de instalaciones telemáticas', 'juanjo'),
-(2, 'Navantia', '1992-04-04', '1992-05-04', 'programador', 'Encargado aplicaicones web', 'juanjo');
+INSERT INTO `experiencia` (`id`, `empresa`, `cif`, `fechaInicio`, `fechaFin`, `cargo`, `funciones`, `identUsuario`) VALUES
+(2, 'Navantia', 'JJOOYY7', '1992-04-04', '1992-05-04', 'programador', 'Encargado aplicaicones web', 'juanjo'),
+(4, 'Ticomsa', '445511', '1993-05-30', '1992-11-14', 'Instalador', 'Encargado de las instalaciones', 'juanjo');
 
 -- --------------------------------------------------------
 
@@ -59,18 +60,17 @@ CREATE TABLE IF NOT EXISTS `formacion` (
   `fechaFin` date NOT NULL,
   `titulo` varchar(32) NOT NULL,
   `clasificacion` int(11) NOT NULL,
-  `ident_usuario` varchar(12) NOT NULL,
+  `identUsuario` varchar(12) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `ident_usuario` (`ident_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  KEY `ident_usuario` (`identUsuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `formacion`
 --
 
-INSERT INTO `formacion` (`id`, `centro`, `fechaInicio`, `fechaFin`, `titulo`, `clasificacion`, `ident_usuario`) VALUES
-(1, 'carlos3', '1992-04-04', '1992-05-04', 'Desarrollo de Aplicaciones', 3, 'juanjo'),
-(2, 'sdasd', '1992-07-04', '1992-08-04', 'jj', 2, 'juanjo');
+INSERT INTO `formacion` (`id`, `centro`, `fechaInicio`, `fechaFin`, `titulo`, `clasificacion`, `identUsuario`) VALUES
+(1, 'carlos3', '1992-04-04', '1992-05-04', 'sads', 5, 'juanjo');
 
 -- --------------------------------------------------------
 
@@ -80,6 +80,7 @@ INSERT INTO `formacion` (`id`, `centro`, `fechaInicio`, `fechaFin`, `titulo`, `c
 
 CREATE TABLE IF NOT EXISTS `usuario` (
   `nick` varchar(12) NOT NULL,
+  `nombre` varchar(12) NOT NULL,
   `clave` varchar(12) NOT NULL,
   `apellidos` varchar(17) NOT NULL,
   `fechaNacimiento` date NOT NULL,
@@ -92,8 +93,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`nick`, `clave`, `apellidos`, `fechaNacimiento`, `telefono`, `direccion`) VALUES
-('juanjo', 'alumno', 'bernabe', '1993-05-30', 123456789, 'C/Lopez');
+INSERT INTO `usuario` (`nick`, `nombre`, `clave`, `apellidos`, `fechaNacimiento`, `telefono`, `direccion`) VALUES
+('juanjo', 'Juan jose', 'alumno', 'bernabe', '1993-05-30', 123456789, 'C/Lopez'),
+('luis', 'luilli', 'alumno', 'cavero', '1992-11-14', 69685748, 'C/Desvio');
 
 --
 -- Restricciones para tablas volcadas
@@ -109,7 +111,7 @@ ALTER TABLE `experiencia`
 -- Filtros para la tabla `formacion`
 --
 ALTER TABLE `formacion`
-  ADD CONSTRAINT `formacion_ibfk_1` FOREIGN KEY (`ident_usuario`) REFERENCES `usuario` (`nick`);
+  ADD CONSTRAINT `formacion_ibfk_1` FOREIGN KEY (`identUsuario`) REFERENCES `usuario` (`nick`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
