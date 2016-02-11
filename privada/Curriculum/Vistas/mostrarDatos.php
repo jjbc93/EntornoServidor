@@ -17,11 +17,13 @@
 				<th>Teléfono</th>
 				<th>Dirección</th>
 				<th>Editar</th>
+				<th>Eliminar</th>
 			</tr>
 		</thead>
 		<tbody>
 		
 			<tr>
+			    <form name="form" method="post" action="Usuario.php?peticion=modificar"> 
 				<td><input type="text" name="nick" value="<?=$usuario["nick"]?>"/></td>
 				<td><input type="text" name="nombre" value="<?=$usuario["nombre"]?>"/></td>
 				<td><input type="text" name="clave" value="<?=$usuario["clave"]?>"/></td>
@@ -30,15 +32,20 @@
 				<td><input type="tel" name="telefono" value="<?=$usuario["telefono"]?>"/></td>
 				<td><input type="text" name="direccion" value="<?=$usuario["direccion"]?>"/></td>
 				<td><input type="submit" value="Editar"/></td>
+				<td><a onClick="return confirm('¿Estas seguro?');" href="Usuario.php?peticion=eliminar">Eliminar</a></td>
+				</form>
 			</tr>
 		</tbody>
 	</table>
 	
 	<?php
-		if(isset($_SESSION["error"])){?>
-			<p><?=$_SESSION["error"]?></p>
-			<?php $_SESSION["error"]=null;?>
-	<?php } ?>
+		if(isset($_SESSION["errorU"])){?>
+			<p><?=$_SESSION["errorU"]?></p>
+			<?php $_SESSION["errorU"]=null;?>
+	     <?php }else if (isset($_SESSION["mensajeU"])) {?>
+	     <p><?=$_SESSION["mensajeU"]?></p>
+	     <?php $_SESSION["mensajeU"]=null;?>
+	     <?php } ?>
 	
 	<table border="1">
 	<caption>Datos de la experiencia</caption>
@@ -71,8 +78,8 @@
 					<td><input type="text" name="funciones" value="<?=$experiencia["funciones"]?>"/></td>
 					<td><input type="text" name="identUsuario" value="<?=$experiencia["identUsuario"]?>"/></td>
 					<td><input type="submit" value="Editar"/></td>
-					<td><a href="Experiencia.php?peticion=eliminar&id=<?=$experiencia["id"]?>
-				    &identUsuario=<?=$experiencia["identUsuario"]?>"><button>Eliminar</button></a></td>
+					<td><a onClick="javascript: return confirm('¿Estas seguro?');" href="Experiencia.php?peticion=eliminar&id=<?=$experiencia["id"]?>
+				    &identUsuario=<?=$experiencia["identUsuario"]?>">Eliminar</a></td>
 				</form>
 			</tr>
 			<?php }?>
@@ -80,10 +87,13 @@
 	</table>
 	
 	<?php
-		if(isset($_SESSION["error"])){?>
-			<p><?=$_SESSION["error"]?></p>
-			<?php $_SESSION["error"]=null;?>
-	<?php } ?>
+		if(isset($_SESSION["errorE"])){?>
+			<p><?=$_SESSION["errorE"]?></p>
+			<?php $_SESSION["errorE"]=null;?>
+	     <?php }else if (isset($_SESSION["mensajeE"])) {?>
+	     <p><?=$_SESSION["mensajeE"]?></p>
+	     <?php $_SESSION["mensajeE"]=null;?>
+	     <?php } ?>
 	
 	<table border="1">
 	<caption>Datos de la formación</caption>
@@ -112,18 +122,36 @@
 					<td> <input type="number" name="clasificacion" value="<?=$formacion["clasificacion"]?>"/></td>
 					<td> <input type="text" name="identUsuario" value="<?=$formacion["identUsuario"]?>"/></td>
 					<td> <input type="submit" value="Editar"/></td>
-					<td> <a href="Formacion.php?peticion=eliminar&id=<?=$formacion["id"]?>
-					&identUsuario=<?=$formacion["identUsuario"]?>"><button>Eliminar</button></a></td>
+					<td><a onClick="javascript: return confirm('¿Estas seguro?');" class="b"href="Formacion.php?peticion=eliminar&id=<?=$formacion["id"]?>
+					&identUsuario=<?=$formacion["identUsuario"]?>">Eliminar</a></td>
 				</form>
 			</tr>
 			<?php }?>
+			
+			<tr>
+				<form name="formulario" method="post" action="Formacion.php?peticion=insertar">
+					<td><input type="number" name="id" disabled/></td>
+					<td><input type="text" name="centro" placeholder="centro"/></td>
+					<td><input type="date" name="fechaInicio" placeholder="fecha Inicio"/></td>
+					<td><input type="date" name="fechaFin" placeholder="fecha fin"/></td>
+					<td><input type="text" name="titulo" placeholder="titulo"/></td>
+					<td><input type="number" name="clasificacion" placeholder="clasificacion"/></td>
+					<td><input type="text" name="identUsuario" placeholder="identUsuario"/></td>
+					<td><input type="submit" value="Añadir"/></td>
+				</form>
+			</tr>
 		</tbody>
 	</table>
+	
 	<?php
-		if(isset($_SESSION["error"])){?>
-			<p><?=$_SESSION["error"]?></p>
-			<?php $_SESSION["error"]=null;?>
-	<?php } ?>
+		if(isset($_SESSION["errorF"])){?>
+			<p><?=$_SESSION["errorF"]?></p>
+			<?php $_SESSION["errorF"]=null;?>
+	     <?php }else if (isset($_SESSION["mensajeF"])) {?>
+	     <p><?=$_SESSION["mensajeF"]?></p>
+	     <?php $_SESSION["mensajeF"]=null;?>
+	     <?php } ?>
+	     
 	<a href="CerrarSesion.php"><button>Cerrar Sesión</button></a>
 </body>
 </html>

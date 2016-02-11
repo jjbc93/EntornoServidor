@@ -14,7 +14,7 @@
 			<p>clave <input type="password" name="clave" value="<?=isset($_REQUEST["clave"]) ? $_REQUEST["clave"] : ""?>"/></p>
 			<p>Repetir clave <input type="password" name="claveRepetida" value="<?=isset($_REQUEST["claveRepetida"]) ? $_REQUEST["claveRepetida"] : ""?>"/></p>
 			<p>apellidos <input type="text" name="apellidos" value="<?=isset($_REQUEST["apellidos"]) ? 
-							   $_REQUEST["apellidos"] : ""?>"</p>
+							   $_REQUEST["apellidos"] : ""?>"/></p>
 			<p>Fecha nacimiento <input type="date" name="fechaNacimiento" 
 									   value="<?=isset($_REQUEST["fechaNacimiento"]) ? $_REQUEST["fechaNacimiento"] : ""?>"/></p>
 			<p>Teléfono <input type="tel" name="telefono" value="<?=isset($_REQUEST["telefono"]) ? $_REQUEST["telefono"] : ""?>"/></p>
