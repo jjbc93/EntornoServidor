@@ -79,8 +79,10 @@ class UsuarioModel{
 		if($query->affected_rows==1){
 			$mensaje="usuario modificado";
 		}else{
-			$mensaje=" no se ha podido modificar el usuario, pruebe más tarde".$query->error();
+			$mensaje=" no se ha podido modificar el usuario, pruebe más tarde";
 		}
+        Conexion::cerrarConexion($conexion);
+        return $mensaje;
 	}
 	
 }
