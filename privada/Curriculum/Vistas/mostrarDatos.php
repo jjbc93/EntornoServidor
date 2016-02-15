@@ -3,10 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MostrarDatos</title>
+	<link type="text/css" rel="stylesheet" href="../css/mostrarDatos.css"/>
 </head>
 <body>
+		<header>
+			<h1>Datos de <?=$_SESSION["usuario"]["nick"]?></h1>
+		</header>
 	<table border="1">
-	<caption>Datos del Usuario</caption>
+	<caption><p>Datos del Usuario</p></caption>
 		<thead>
 			<tr>
 				<th>Nick</th>
@@ -31,8 +35,8 @@
 				<td><input type="date" name="fechaNacimiento" value="<?=$usuario["fechaNacimiento"]?>"/></td>
 				<td><input type="tel" name="telefono" value="<?=$usuario["telefono"]?>"/></td>
 				<td><input type="text" name="direccion" value="<?=$usuario["direccion"]?>"/></td>
-				<td><input type="submit" value="Editar"/></td>
-				<td><a onClick="return confirm('¿Estas seguro?');" href="Usuario.php?peticion=eliminar">Eliminar</a></td>
+				<td><input type="submit" value="Editar" class="button"/></td>
+				<td><a onClick="return confirm('¿Estas seguro?');" href="Usuario.php?peticion=eliminar"><img src="../css/img/usuario.jpg" width="30px"></a></td>
 				</form>
 			</tr>
 		</tbody>
@@ -48,7 +52,7 @@
 	     <?php } ?>
 	
 	<table border="1">
-	<caption>Datos de la experiencia</caption>
+	<caption><p>Datos de la Experiencia</p></caption>
 		<thead>
 			<tr>
 				<th>id</th>
@@ -77,12 +81,26 @@
 					<td><input type="text" name="cargo" value="<?=$experiencia["cargo"]?>"/></td>
 					<td><input type="text" name="funciones" value="<?=$experiencia["funciones"]?>"/></td>
 					<td><input type="text" name="identUsuario" value="<?=$experiencia["identUsuario"]?>"/></td>
-					<td><input type="submit" value="Editar"/></td>
+					<td><input type="submit" value="Editar" class="button"/></td>
 					<td><a onClick="javascript: return confirm('¿Estas seguro?');" href="Experiencia.php?peticion=eliminar&id=<?=$experiencia["id"]?>
-				    &identUsuario=<?=$experiencia["identUsuario"]?>">Eliminar</a></td>
+				    &identUsuario=<?=$experiencia["identUsuario"]?>"><img src="../css/img/archivo.jpg" width="30px"></a></td>
 				</form>
 			</tr>
 			<?php }?>
+			
+			<tr>
+				<form name="formulario" method="post" action="Experiencia.php?peticion=insertar">
+					<td><input type="number" name="id" disabled/></td>
+					<td><input type="text" name="empresa" placeholder="empresa"/></td>
+					<td><input type="text" name="cif" placeholder="cif"/></td>
+					<td><input type="date" name="fechaInicio"placeholder="fecha inicio"/></td>
+					<td><input type="date" name="fechaFin" placeholder="fecha fin"/></td>
+					<td><input type="text" name="cargo"placeholder="cargo"/></td>
+					<td><input type="text" name="funciones" placeholder="funciones"/></td>
+					<td><input type="text" name="identUsuario"placeholder="identUsuario"/></td>
+					<td><input type="submit" value="" id="nuevo"></td>
+				</form>
+			</tr>
 		</tbody>
 	</table>
 	
@@ -96,7 +114,7 @@
 	     <?php } ?>
 	
 	<table border="1">
-	<caption>Datos de la formación</caption>
+	<caption><p>Datos de la Formación</p></caption>
 		<thead>
 			<tr>
 				<th>Id</th>
@@ -121,9 +139,9 @@
 					<td> <input type="text" name="titulo" value="<?=$formacion["titulo"]?>"/></td>
 					<td> <input type="number" name="clasificacion" value="<?=$formacion["clasificacion"]?>"/></td>
 					<td> <input type="text" name="identUsuario" value="<?=$formacion["identUsuario"]?>"/></td>
-					<td> <input type="submit" value="Editar"/></td>
+					<td> <input type="submit" value="Editar" class="button"/></td>
 					<td><a onClick="javascript: return confirm('¿Estas seguro?');" class="b"href="Formacion.php?peticion=eliminar&id=<?=$formacion["id"]?>
-					&identUsuario=<?=$formacion["identUsuario"]?>">Eliminar</a></td>
+					&identUsuario=<?=$formacion["identUsuario"]?>"><img src="../css/img/archivo.jpg" width="30px"></a></td>
 				</form>
 			</tr>
 			<?php }?>
@@ -137,7 +155,7 @@
 					<td><input type="text" name="titulo" placeholder="titulo"/></td>
 					<td><input type="number" name="clasificacion" placeholder="clasificacion"/></td>
 					<td><input type="text" name="identUsuario" placeholder="identUsuario"/></td>
-					<td><input type="submit" value="Añadir"/></td>
+					<td><input type="submit" value="" id="nuevo"></td>
 				</form>
 			</tr>
 		</tbody>
@@ -151,7 +169,7 @@
 	     <p><?=$_SESSION["mensajeF"]?></p>
 	     <?php $_SESSION["mensajeF"]=null;?>
 	     <?php } ?>
-	     
-	<a href="CerrarSesion.php"><button>Cerrar Sesión</button></a>
+	<a href="CerrarSesion.php" class="enlaces">Cerrar Sesión</a>
+	<a href="UsuarioLogueado.php?resumen" class="enlaces">Resumen</a>
 </body>
 </html>

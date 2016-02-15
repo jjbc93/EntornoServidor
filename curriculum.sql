@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-02-2016 a las 00:41:05
+-- Tiempo de generación: 15-02-2016 a las 01:10:13
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `experiencia` (
   `identUsuario` varchar(12) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `identUsuario` (`identUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `experiencia`
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `experiencia` (
 
 INSERT INTO `experiencia` (`id`, `empresa`, `cif`, `fechaInicio`, `fechaFin`, `cargo`, `funciones`, `identUsuario`) VALUES
 (2, 'Navantia', 'JJOOYY7', '1992-04-04', '1992-05-04', 'programador', 'Encargado aplicaicones web', 'juanjo'),
-(4, 'Ticomsa', '445511', '1993-05-30', '1992-11-14', 'Instalador', 'Encargado de las instalaciones', 'juanjo');
+(4, 'Ticomsa', '445511', '1993-05-30', '1992-11-14', 'instalador', 'Encargado de las instalaciones', 'juanjo');
 
 -- --------------------------------------------------------
 
@@ -63,14 +63,18 @@ CREATE TABLE IF NOT EXISTS `formacion` (
   `identUsuario` varchar(12) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ident_usuario` (`identUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
 -- Volcado de datos para la tabla `formacion`
 --
 
 INSERT INTO `formacion` (`id`, `centro`, `fechaInicio`, `fechaFin`, `titulo`, `clasificacion`, `identUsuario`) VALUES
-(1, 'carlos3', '1992-04-04', '1992-05-04', 'sads', 5, 'juanjo');
+(1, 'carlos3', '1992-04-04', '1992-05-04', 'dasasd', 5, 'juanjo'),
+(2, 'Salesianos', '2004-04-07', '2003-05-09', 'sti', 5, 'juanjo'),
+(23, 'Salesianos', '1993-05-30', '1993-06-30', 'Dam', 5, 'juanjo'),
+(24, 'Salesianos', '1993-05-30', '1993-06-30', 'Dam', 7, 'juanjo'),
+(36, 'Salesianos', '1993-05-30', '1993-06-30', 'Dam', 7, 'juanjo');
 
 -- --------------------------------------------------------
 
@@ -94,8 +98,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`nick`, `nombre`, `clave`, `apellidos`, `fechaNacimiento`, `telefono`, `direccion`) VALUES
-('juanjo', 'Juan jose', 'alumno', 'bernabe', '1993-05-30', 123456789, 'C/Lopez'),
-('luis', 'luilli', 'alumno', 'cavero', '1992-11-14', 69685748, 'C/Desvio');
+('juanjo', 'Juan jose', 'alumno', 'bernabe', '1993-05-30', 123456789, 'C/Desvio'),
+('luis', 'luilli', 'alumno', 'cavero', '1992-11-14', 69685748, 'cc'),
+('Mariluz', 'Mariluz', 'alumno', 'Casas', '1959-06-16', 123456789, 'C/Desvio');
 
 --
 -- Restricciones para tablas volcadas

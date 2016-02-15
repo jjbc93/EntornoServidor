@@ -7,7 +7,7 @@ require_once PRIVADA . "Session.php";
 if(!$_REQUEST){
 	include PRIVADA . "Vistas/login.php";
 }else{
-	session_start();
+	Session:initSession();
 	$nick = $_REQUEST["usuario"];
 	$clave = $_REQUEST["clave"];
 	if(empty($nick) || empty($clave)){

@@ -2,6 +2,7 @@
 include "../../../privada/Curriculum/config.php";
 require_once PRIVADA . "FormacionModel.php";
 require_once PRIVADA . "Session.php";
+comprobarAcceso();
 Session::initSession();
 
 $peticion = $_REQUEST["peticion"];
