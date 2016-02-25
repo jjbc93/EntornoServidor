@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>login</title>
+    </head>
+    <body>
+        <h2>Acceso Usuario</h2>
+        <form name="formulario" method="post" action="index.php">
+            <p>Nick<input type="text" name="nick"/></p>
+            <p>Clave<input type="text" name="clave"/></p>
+            <input type="submit" value="Enviar"/>
+        </form>
+        <?php if(isset($_SESSION["error"])){?>
+    <p><?=$_SESSION["error"]?></p>
+    <?php unset($_SESSION["error"])?>
+    <?php }?>
+    </body>
+</html>
