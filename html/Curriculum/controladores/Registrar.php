@@ -3,7 +3,6 @@ include "../../../privada/Curriculum/config.php";
 require_once PRIVADA . "LoginModel.php";
 require_once PRIVADA . "UsuarioModel.php";
 require_once PRIVADA . "Session.php";
-comprobarAcceso();
 if(!$_REQUEST){
 	include PRIVADA . "Vistas/formulario.php";
 }else{
